@@ -3,7 +3,7 @@ import { ScrollView, Text, View } from "react-native";
 import News from "../../components/News";
 import Header from "../../components/Header";
 
-const News = () => {
+const Home = () => {
 	return (
 		<ScrollView>
 			<Header />
@@ -12,4 +12,4 @@ const News = () => {
 	);
 };
 
-export default News;
+export default Home;

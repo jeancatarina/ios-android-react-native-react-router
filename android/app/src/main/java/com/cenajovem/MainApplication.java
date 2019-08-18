@@ -1,4 +1,4 @@
-package com.projeto;
+package com.cenajovem;
 
 import android.app.Application;
 import android.util.Log;

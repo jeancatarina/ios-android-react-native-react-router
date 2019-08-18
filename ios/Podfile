@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'projeto' do
-  # Pods for projeto
+target 'cenajovem' do
+  # Pods for cenajovem
   pod 'React', :path => '../node_modules/react-native/'
   pod 'React-Core', :path => '../node_modules/react-native/React'
   pod 'React-DevSupport', :path => '../node_modules/react-native/React'
@@ -30,7 +30,7 @@ target 'projeto' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
-  target 'projetoTests' do
+  target 'cenajovemTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -38,10 +38,10 @@ target 'projeto' do
   use_native_modules!
 end
 
-target 'projeto-tvOS' do
-  # Pods for projeto-tvOS
+target 'cenajovem-tvOS' do
+  # Pods for cenajovem-tvOS
 
-  target 'projeto-tvOSTests' do
+  target 'cenajovem-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
