@@ -8,19 +8,23 @@ import styles from "./styles";
 export class Tabs extends Component {
 	state = {
 		menuItems: [
-			{ title: "Novidades", icon: "coffee" },
-			{ title: "GAs", icon: "child" },
-			{ title: "Calendário", icon: "calendar" },
-			{ title: "Arquivos", icon: "file-word-o" },
-			{ title: "Recados", icon: "newspaper-o" },
-			{ title: "Estatísticas", icon: "line-chart" },
-			{ title: "Configurações", icon: "cog" }
+			{ title: "Novidades", icon: "coffee", screenName: "Home"},
+			{ title: "GAs", icon: "child", screenName: "Ga"},
+			{ title: "Calendário", icon: "calendar", screenName: ""},
+			{ title: "Arquivos", icon: "file-word-o", screenName: ""},
+			{ title: "Recados", icon: "newspaper-o", screenName: ""},
+			{ title: "Estatísticas", icon: "line-chart", screenName: ""},
+			{ title: "Configurações", icon: "cog", screenName: ""}
 		]
 	};
 
-	createMenuButtons({ title, icon }, index) {
+	createMenuButtons({ title, icon, screenName }, index) {
 		return (
-			<Button style={styles.button} key={`${title}-${index}`}>
+			<Button
+				style={styles.button}
+				onPress={() => this.props.navigation.navigate(screenName)}
+				key={`${title}-${index}`}
+			>
 				<Icon size={18} name={icon} style={styles.icon} />
 				<Text style={styles.title}>{title}</Text>
 			</Button>
@@ -38,7 +42,7 @@ export class Tabs extends Component {
 					showsHorizontalScrollIndicator={false}
 				>
 					<View style={styles.viewNavigator}>
-						{menuItems.map(this.createMenuButtons)}
+						{menuItems.map(this.createMenuButtons.bind(this))}
 					</View>
 				</ScrollView>
 			</View>

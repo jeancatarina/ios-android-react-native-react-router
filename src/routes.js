@@ -1,12 +1,32 @@
-import React from "react";
-import { View, Text } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import {
+	createBottomTabNavigator,
+	createAppContainer,
+	createStackNavigator
+} from "react-navigation";
+import Ga from "./pages/Ga";
 import Home from "./pages/Home";
+import Tabs from "./components/Tabs";
 
-const AppNavigator = createStackNavigator({
-	Home: {
-		screen: Home
+const AppNavigator = createStackNavigator(
+	{
+		Home: {
+			screen: Home
+		},
+		Ga: {
+			screen: Ga
+		}
+	},
+	{
+		initialRouteName: "Home"
 	}
-});
+);
 
-export default createAppContainer(AppNavigator);
+const TabNavigator = createBottomTabNavigator(
+	{
+		Home: Home,
+		Ga: Ga
+	},
+	{ tabBarComponent: Tabs }
+);
+
+export default createAppContainer(TabNavigator);

@@ -50,7 +50,7 @@ export class News extends Component {
 		]
 	};
 
-	createMenuButtons({ title, description, type, button }, index) {
+	getCards({ title, description, type, button }, index) {
 		return (
 			<Card
 				key={`${title}-${index}`}
@@ -67,7 +67,7 @@ export class News extends Component {
 
 		return (
 			<View style={styles.container}>
-				{cards && cards.map(this.createMenuButtons)}
+				{cards && cards.map(this.getCards)}
 			</View>
 		);
 	}

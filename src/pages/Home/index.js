@@ -3,10 +3,10 @@ import { ScrollView, Text, View } from "react-native";
 import News from "../../components/News";
 import Header from "../../components/Header";
 
-const Home = () => {
+const Home = (props) => {
 	return (
 		<ScrollView>
-			<Header />
+			{/* <Header /> */}
 			<News />
 		</ScrollView>
 	);

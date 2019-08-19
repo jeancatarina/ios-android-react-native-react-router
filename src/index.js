@@ -1,14 +1,12 @@
 import React from "react";
 import { View } from "react-native";
-import Tabs from "./components/Tabs";
 import Routes from './routes';
 import { colors } from "./styles";
 
-const App = () => {
+const App = (props) => {
 	return (
 		<View style={{ flex: 1, backgroundColor: colors.white }}>
 			<Routes />
-			<Tabs />
 		</View>
 	);
 };

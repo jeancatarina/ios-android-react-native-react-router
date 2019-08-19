@@ -25,7 +25,7 @@ export class Card extends Component {
 		];
 	}
 
-	getTitleIcon() {
+	getIconName() {
 		if (this.props.type === "birthday") return "birthday-cake";
 
 		if (this.props.type === "event") return "pizza-slice";
@@ -39,6 +39,32 @@ export class Card extends Component {
 		return null;
 	}
 
+	getTitleIcon() {
+		return (
+			<Icon
+				size={18}
+				name={this.getIconName()}
+				style={this.getStyle(styles.icon)}
+			/>
+		);
+	}
+
+	getCardTitle() {
+		return (
+			<Text style={this.getStyle(styles.cardTitle)}>
+				{this.props.title}
+			</Text>
+		);
+	}
+
+	getCardDesc() {
+		return this.props.description.map((desc, index) => (
+			<Text key={index} style={this.getStyle(styles.cardDescription)}>
+				{desc}
+			</Text>
+		));
+	}
+
 	getButton() {
 		return (
 			<Button style={styles.button}>
@@ -48,30 +74,13 @@ export class Card extends Component {
 	}
 
 	render() {
-		let titleIcon;
-
-		titleIcon = this.getTitleIcon();
-
 		return (
 			<View style={this.getStyle(styles.cardContainer)}>
 				<View style={styles.cardTitleContainer}>
-					<Icon
-						size={18}
-						name={titleIcon}
-						style={this.getStyle(styles.icon)}
-					/>
-					<Text style={this.getStyle(styles.cardTitle)}>
-						{this.props.title}
-					</Text>
+					{this.props.type && this.getTitleIcon()}
+					{this.props.title && this.getCardTitle()}
 				</View>
-				{this.props.description.map((desc, index) => (
-					<Text
-						key={index}
-						style={this.getStyle(styles.cardDescription)}
-					>
-						{desc}
-					</Text>
-				))}
+				{this.props.description && this.getCardDesc()}
 				{this.props.button && this.getButton()}
 			</View>
 		);
