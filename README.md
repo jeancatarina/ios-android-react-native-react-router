@@ -1,2 +1,1 @@
-# cenajovem
-App da cena jovem em react native
+# React Native app
